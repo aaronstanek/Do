@@ -174,6 +174,11 @@ class TestStringMethods(unittest.TestCase):
     def test_invert(self):
         # invert
         self.assertEqual( Do.run(invert_test()) , -61 )
+    
+    def test_abs(self):
+        # abs
+        # neg
+        self.assertEqual( Do.run(abs(neg_test())) , 60 )
 
     def test_sub(self):
         # subtraction

@@ -29,6 +29,8 @@ cdef class Struct:
         return uni_op(op_neg,a)
     def __invert__(Struct a):
         return uni_op(op_invert,a)
+    def __abs__(object a):
+        return uni_op(abs,a)
     def __add__(object a, object b):
         return bin_op(op_add,a,b)
     def __sub__(object a, object b):
