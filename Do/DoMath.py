@@ -3,7 +3,6 @@ import math
 import sys
 
 ceil = Function(math.ceil)
-comb = Function(math.comb)
 copysign = Function(math.copysign)
 fabs = Function(math.fabs)
 factorial = Function(math.factorial)
@@ -53,6 +52,7 @@ if sys.version_info.minor >= 5:
 if sys.version_info.minor >= 7:
     remainder = Function(math.remainder)
 if sys.version_info.minor >= 8:
+    comb = Function(math.comb)
     isqrt = Function(math.isqrt)
     perm = Function(math.perm)
     prod = Function(math.prod)

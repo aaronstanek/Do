@@ -1,4 +1,5 @@
 from DoMain import Function
+import sys
 
 abs = Function(abs)
 all = Function(all)
@@ -6,10 +7,8 @@ any = Function(any)
 ascii = Function(ascii)
 bin = Function(bin)
 bool = Function(bool)
-breakpoint = Function(breakpoint)
 bytearray = Function(bytearray)
 bytes = Function(bytes)
-callable = Function(callable)
 chr = Function(chr)
 classmethod = Function(classmethod)
 compile = Function(compile)
@@ -68,5 +67,9 @@ tuple = Function(tuple)
 type = Function(type)
 vars = Function(vars)
 zip = Function(zip)
+if sys.version_info.minor >= 2:
+    callable = Function(callable)
+if sys.version_info.minor >= 7:
+    breakpoint = Function(breakpoint)
 
 del Function
