@@ -45,6 +45,10 @@ cdef class Struct:
         return bin_op(op_mod,a,b)
     def __pow__(object a, object b, object c):
         return ter_op(op_pow,a,b,c)
+    def __lshift__(object a, object b):
+        return bin_op(op_lshift,a,b)
+    def __rshift__(object a, object b):
+        return bin_op(op_rshift,a,b)
     def __eq__(object a, object b):
         return bin_op(op_eq,a,b)
     def __ne__(object a, object b):
@@ -119,6 +123,12 @@ def op_mod(a,b):
 
 def op_pow(a,b,m):
     return pow(a,b,m)
+
+def op_lshift(a,b):
+    return a << b
+
+def op_rshift(a,b):
+    return a >> b
 
 def op_eq(a,b):
     return a == b

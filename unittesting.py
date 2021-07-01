@@ -57,6 +57,14 @@ def returns_10():
     return 10
 
 @Do.Function
+def returns_5():
+    return 5
+
+@Do.Function
+def returns_1():
+    return 1
+
+@Do.Function
 def pos_test():
     return +returns_60()
 
@@ -202,7 +210,13 @@ class TestStringMethods(unittest.TestCase):
         # addition
         self.assertEqual( Do.run(pow_test1()) , 1000000 )
         self.assertEqual( Do.run(pow_test2()) , pow(17,10,60) )
-    
+
+    def test_shifts(self):
+        # lshift
+        # rshift
+        self.assertEqual( Do.run( returns_5() << returns_1() ) , 5 << 1 )
+        self.assertEqual( Do.run( returns_5() >> returns_1() ) , 5 >> 1 )
+
     def test_wrapping_type(self):
         self.assertTrue(isinstance(Do.wrap( () ),Do.Struct))
         self.assertTrue(isinstance(Do.wrap( (1,2,3) ),Do.Struct))
