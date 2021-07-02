@@ -65,6 +65,14 @@ def returns_1():
     return 1
 
 @Do.Function
+def returns_True():
+    return True
+
+@Do.Function
+def returns_False():
+    return False
+
+@Do.Function
 def pos_test():
     return +returns_60()
 
@@ -216,6 +224,17 @@ class TestStringMethods(unittest.TestCase):
         # rshift
         self.assertEqual( Do.run( returns_5() << returns_1() ) , 5 << 1 )
         self.assertEqual( Do.run( returns_5() >> returns_1() ) , 5 >> 1 )
+
+    def test_boolean_operations(self):
+        # and
+        # or
+        # xor
+        values = [(True,returns_True),(False,returns_False)]
+        for a in values:
+            for b in values:
+                self.assertEqual( Do.run( a[1]() & b[1]() ) , a[0] & b[0] )
+                self.assertEqual( Do.run( a[1]() | b[1]() ) , a[0] | b[0] )
+                self.assertEqual( Do.run( a[1]() ^ b[1]() ) , a[0] ^ b[0] )
 
     def test_wrapping_type(self):
         self.assertTrue(isinstance(Do.wrap( () ),Do.Struct))

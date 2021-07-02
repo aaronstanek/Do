@@ -49,6 +49,12 @@ cdef class Struct:
         return bin_op(op_lshift,a,b)
     def __rshift__(object a, object b):
         return bin_op(op_rshift,a,b)
+    def __and__(object a, object b):
+        return bin_op(op_and,a,b)
+    def __or__(object a, object b):
+        return bin_op(op_or,a,b)
+    def __xor__(object a, object b):
+        return bin_op(op_xor,a,b)
     def __eq__(object a, object b):
         return bin_op(op_eq,a,b)
     def __ne__(object a, object b):
@@ -129,6 +135,15 @@ def op_lshift(a,b):
 
 def op_rshift(a,b):
     return a >> b
+
+def op_and(a,b):
+    return a & b
+
+def op_or(a,b):
+    return a | b
+
+def op_xor(a,b):
+    return a ^ b
 
 def op_eq(a,b):
     return a == b
