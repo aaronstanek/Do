@@ -67,6 +67,16 @@ cdef class Struct:
         return bin_op(op_le,a,b)
     def __ge__(object a, object b):
         return bin_op(op_ge,a,b)
+    # unable to overload:
+    # __str__ __call__
+    # __iter__ __delattr__
+    # __len__ 
+    # yet to overload:
+    # __nonzero__ __int__ __long__
+    # __float__ __oct__ __hex__ __index__
+    # __getitem__ __setitem__ __delitem__
+    # __getslice__ __setslice__ __delslice__
+    # __contains__ __next__
 
 cdef Struct uni_op(object func, Struct x):
     # func is a callable with 1 positional argument
