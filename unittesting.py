@@ -163,6 +163,10 @@ class StateTester(object):
         self.value = 0
     def increment_by(self,value):
         self.value += value
+    def __len__(self):
+        old = self.value
+        self.value = self.value + 6
+        return old
 
 class TestStringMethods(unittest.TestCase):
 
@@ -305,7 +309,8 @@ class TestStringMethods(unittest.TestCase):
         a = StateTester()
         b = Do.update(a,"increment_by",8)
         c = Do.update(b,"increment_by",-4)
-        self.assertEqual( Do.run(c).value , 4 )
+        d = Do.update(c,len,c)
+        self.assertEqual( Do.run(d).value , 10 )
 
 if __name__ == '__main__':
     unittest.main()
