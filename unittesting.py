@@ -158,6 +158,12 @@ def sqrt_test(n):
     else:
         return Do.sqrt(sqrt_test(n-1))
 
+class StateTester(object):
+    def __init__(self):
+        self.value = 0
+    def increment_by(self,value):
+        self.value += value
+
 class TestStringMethods(unittest.TestCase):
 
     def test_fib(self):
@@ -294,6 +300,12 @@ class TestStringMethods(unittest.TestCase):
     def test_sqrt(self):
         a = Do.run(sqrt_test(2))
         self.assertTrue( abs(a-4) < 10e-6 )
+    
+    def test_update(self):
+        a = StateTester()
+        b = Do.update(a,"increment_by",8)
+        c = Do.update(b,"increment_by",-4)
+        self.assertEqual( Do.run(c).value , 4 )
 
 if __name__ == '__main__':
     unittest.main()

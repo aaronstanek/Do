@@ -272,3 +272,11 @@ def run(Struct root):
                 # this argument is just an orginary value
                 # pass over it
                 elem.advance()
+
+@Function
+def update(obj,func,*args,**kwargs):
+    if type(func) == str:
+        getattr(obj,func)(*args,**kwargs)
+    else:
+        func(*args,**kwargs)
+    return obj

@@ -3,7 +3,7 @@ if sys.version_info.major != 3:
     raise Exception("Only Python 3 is supported by this package.")
 del sys
 
-from .DoMain import Function, Struct, run
+from .DoMain import Function, Struct, run, update
 from .DoWrap import wrap, DuplicateKeyError
 from .DoBuiltIn import *
 from .DoMath import *
